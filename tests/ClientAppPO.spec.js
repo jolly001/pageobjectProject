@@ -1,5 +1,6 @@
 const {test, expect} = require('@playwright/test');
 const {POManager}  = require( '../pageobjects/POManager');
+const dataset = JSON.parse(JSON.stringify(require('../utils/ClientAppPOTestData.json')));
 
 
 
@@ -10,7 +11,7 @@ const poManager = new POManager(page);
     let password= "Admin@123";
     
     await loginPage.goTo();
-    await loginPage.validLogin(username, password);   
+    await loginPage.validLogin(dataset.username, dataset.password);   
     
     
 })
@@ -21,7 +22,7 @@ test('Invalid login', async({page})=>{
     let username= "test@test.com";
     let password = "test22"
     await loginPage.goTo();
-    await loginPage.inValidLogin(username,password);
+    await loginPage.inValidLogin(dataset.username,dataset.password);
     
 
 
@@ -35,8 +36,8 @@ test.only('validate Search', async ({page})=>{
           const dashboardPage = poManager.getDashboardPage();
           const cartPage = poManager.getCartPage();
         await loginPage.goTo();
-        await loginPage.validLogin(username, password);
-        await dashboardPage.validateSearch("ZARA");
+        await loginPage.validLogin(dataset.username, dataset.password);
+        await dashboardPage.validateSearch(dataset.productName);
         await cartPage.navigateToCartAndVerifyItem();
 
 })
