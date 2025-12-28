@@ -13,7 +13,7 @@ class DashboardPage {
 
 
         async validateSearch(searchItem){
-            await this.searchTextInputBox.fill("ZARA");
+            await this.searchTextInputBox.fill(searchItem);
             await this.page.keyboard.press('Enter');
            // await this.searchedItemsList.first().waitFor();
             let text = await this.searchedItemsList.first().textContent();

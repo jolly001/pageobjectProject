@@ -1,8 +1,17 @@
-{
+[{
+    
     "username": "jolly@gmail.com",
     "password": "Admin@123",
     "productName": "ZARA"
 
 
 
+},
+
+{
+    "productName": "ADIDAS",
+    "username": "jolly@gmail.com",
+    "password": "Admin@123"
+
 }
+]
